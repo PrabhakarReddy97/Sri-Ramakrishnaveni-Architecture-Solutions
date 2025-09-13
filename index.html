@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Ramakrishnaveni Architecture Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-slate-50 text-slate-800;
+        }
+        .section-header {
+            @apply text-4xl font-bold mb-4 text-center text-slate-900;
+        }
+        .section-subheader {
+            @apply text-xl text-center text-slate-600 mb-12;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            @apply bg-slate-800 text-white p-3 rounded-full shadow-lg transition-all duration-300 transform scale-0;
+            cursor: pointer;
+            z-index: 50;
+        }
+        .scroll-to-top.show {
+            @apply scale-100;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(30,58,138,0.7), rgba(17,24,39,0.7)), url('https://placehold.co/1920x1080/0d0e11/EAEAEA?text=Architectural+Masterpiece');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-slate-900">
+                <span class="text-emerald-600">Sri Ramakrishnaveni</span> Architecture Solutions
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-slate-600 hover:text-emerald-600 transition-colors">About Us</a>
+                <a href="#services" class="text-slate-600 hover:text-emerald-600 transition-colors">Services</a>
+                <a href="#projects" class="text-slate-600 hover:text-emerald-600 transition-colors">Projects</a>
+                <a href="#contact" class="text-slate-600 hover:text-emerald-600 transition-colors">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-600 hover:text-slate-900 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-4">
+            <a href="#about" class="block px-6 py-2 text-slate-800 hover:bg-slate-100 transition-colors">About Us</a>
+            <a href="#services" class="block px-6 py-2 text-slate-800 hover:bg-slate-100 transition-colors">Services</a>
+            <a href="#projects" class="block px-6 py-2 text-slate-800 hover:bg-slate-100 transition-colors">Projects</a>
+            <a href="#contact" class="block px-6 py-2 text-slate-800 hover:bg-slate-100 transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-16">
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg h-screen flex flex-col justify-center items-center text-center text-white p-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4 drop-shadow-md">
+                    Sri Ramakrishnaveni
+                </h1>
+                <p class="text-xl md:text-2xl font-light mb-8 drop-shadow-md">
+                    Where Vision Meets Structure. 
+                </p>
+                <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
+                    Start Your Project
+                </a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-left">
+                        <h2 class="section-header text-left">Our Philosophy</h2>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            At Sri Ramakrishnaveni Architecture Solutions, we believe that true design goes beyond blueprints. It's about crafting spaces that reflect the aspirations, culture, and needs of the people who inhabit them. Our approach blends innovative design with sustainable practices, ensuring every project is both beautiful and responsible.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            We are committed to meticulous attention to detail, from the initial sketch to the final construction. Our team of experienced architects and designers works collaboratively with clients to bring their unique visions to life, creating environments that are not only aesthetically pleasing but also functional and enduring.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400/F0F4F8/3B82F6?text=Our+Team" alt="Our Team" class="rounded-xl shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="section-header">Our Services</h2>
+                <p class="section-subheader">Transforming ideas into reality with precision and creativity.</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg">
+                        <div class="text-emerald-600 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-2M5 21H3m2 0h2M12 4v17m-4 0h8"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Residential Design</h3>
+                        <p class="text-slate-600 text-center">
+                            Designing custom homes that are a perfect blend of comfort, style, and personal expression.
+                        </p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg">
+                        <div class="text-emerald-600 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13V2m0 0H3m18 0v20M3 2v20m0 0h18M5 16h4M5 8h4m6 8h4m-4 0v-8m0 8h4m-4-8h-4m-4 0H5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Commercial Projects</h3>
+                        <p class="text-slate-600 text-center">
+                            Creating functional and inspiring commercial spaces for businesses of all sizes.
+                        </p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg">
+                        <div class="text-emerald-600 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.484 9.332 5 7.5 5S4.168 5.484 3 6.253m9 0c-1.168.769-2.668 1.253-4.5 1.253S4.168 7.022 3 6.253m9 0c1.168.769 2.668 1.253 4.5 1.253s3.332-.484 4.5-1.253M12 18.747c1.168-.769 2.668-1.253 4.5-1.253s3.332.484 4.5 1.253m-9 0c-1.168-.769-2.668-1.253-4.5-1.253S4.168 18.022 3 18.747"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Renovation & Restoration</h3>
+                        <p class="text-slate-600 text-center">
+                            Revitalizing existing spaces with modern designs while preserving their unique character.
+                        </p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg">
+                        <div class="text-emerald-600 mb-4">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Interior Design</h3>
+                        <p class="text-slate-600 text-center">
+                            Crafting beautiful and functional interior spaces that complement the architecture.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="section-header">Our Projects</h2>
+                <p class="section-subheader">A gallery of our completed works, showcasing our dedication to excellence.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-slate-50 rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/94A3B8/F8FAFC?text=Modern+Residence" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">The Serenity Villa</h3>
+                            <p class="text-slate-600 text-sm">A contemporary residential project designed for comfort and luxury.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-slate-50 rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/64748B/F8FAFC?text=Commercial+Complex" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Urban Gateway Tower</h3>
+                            <p class="text-slate-600 text-sm">A striking commercial tower reshaping the city skyline.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-slate-50 rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/334155/F8FAFC?text=Public+Space" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Harmony Park</h3>
+                            <p class="text-slate-600 text-sm">A collaborative public space project focusing on community and nature.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 4 -->
+                    <div class="bg-slate-50 rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/CBD5E1/475569?text=Interior+Design" alt="Project 4" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">The Luminous Office</h3>
+                            <p class="text-slate-600 text-sm">Interior design for a modern tech startup, maximizing light and space.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 5 -->
+                    <div class="bg-slate-50 rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/E2E8F0/64748B?text=Residential+Interiors" alt="Project 5" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Coastal Retreat Home</h3>
+                            <p class="text-slate-600 text-sm">A stunning residential design project with a focus on coastal aesthetics.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 6 -->
+                    <div class="bg-slate-50 rounded-xl shadow-md overflow-hidden transition-transform transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/F1F5F9/94A3B8?text=Luxury+Apartments" alt="Project 6" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Prestige Apartments</h3>
+                            <p class="text-slate-600 text-sm">High-end apartment complex blending modern living with timeless design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="section-header">Get in Touch</h2>
+                <p class="section-subheader">We'd love to hear about your next project. Fill out the form below and we'll be in touch.</p>
+
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <form id="contact-form">
+                        <div class="mb-6">
+                            <label for="name" class="block text-slate-700 font-semibold mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-slate-700 font-semibold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-slate-700 font-semibold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-md transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                    <!-- Message Box for form submission feedback -->
+                    <div id="message-box" class="hidden mt-6 p-4 rounded-md text-white font-bold text-center transition-opacity opacity-0 duration-500"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="container mx-auto px-6 max-w-6xl text-center">
+            <div class="mb-6">
+                <h3 class="text-2xl font-bold">Sri Ramakrishnaveni Architecture Solutions</h3>
+                <p class="text-slate-400 mt-2">Crafting a better future, one design at a time.</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6 text-slate-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <p class="text-slate-500 text-sm">&copy; 2024 Sri Ramakrishnaveni. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTopBtn" aria-label="Scroll to top">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10 18a.75.75 0 01-.75-.75V5.56l-3.22 3.22a.75.75 0 01-1.06-1.06l4.5-4.5a.75.75 0 011.06 0l4.5 4.5a.75.75 0 11-1.06 1.06L10.75 5.56v11.69a.75.75 0 01-.75.75z" clip-rule="evenodd" />
+        </svg>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form submission handling
+        const contactForm = document.getElementById('contact-form');
+        const messageBox = document.getElementById('message-box');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Simulate form submission
+            console.log('Form submitted!');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Simple validation
+            if (name && email && message) {
+                showMessage("Thank you for your message! We will get back to you shortly.", "bg-green-500");
+                contactForm.reset();
+            } else {
+                showMessage("Please fill out all the fields.", "bg-red-500");
+            }
+        });
+
+        function showMessage(text, bgColor) {
+            messageBox.textContent = text;
+            messageBox.className = `mt-6 p-4 rounded-md text-white font-bold text-center transition-opacity opacity-100 duration-500 ${bgColor}`;
+            messageBox.classList.remove('hidden');
+
+            // Hide the message after 5 seconds
+            setTimeout(() => {
+                messageBox.classList.add('opacity-0');
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Scroll to Top button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
