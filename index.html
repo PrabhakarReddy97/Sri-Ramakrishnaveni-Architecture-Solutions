@@ -36,6 +36,18 @@
             background-size: cover;
             background-position: center;
         }
+        .modal {
+            @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none;
+        }
+        .modal.active {
+            @apply opacity-100 pointer-events-auto;
+        }
+        .modal-content {
+            @apply bg-white rounded-xl shadow-2xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300;
+        }
+        .modal.active .modal-content {
+            @apply scale-100;
+        }
     </style>
 </head>
 <body class="bg-slate-50">
@@ -114,7 +126,7 @@
                 <p class="section-subheader">Transforming ideas into reality with precision and creativity.</p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Service Card 1 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg">
+                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg cursor-pointer" onclick="openModal('residential')">
                         <div class="text-emerald-600 mb-4">
                             <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-2M5 21H3m2 0h2M12 4v17m-4 0h8"></path>
@@ -126,7 +138,7 @@
                         </p>
                     </div>
                     <!-- Service Card 2 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg">
+                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg cursor-pointer" onclick="openModal('commercial')">
                         <div class="text-emerald-600 mb-4">
                             <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13V2m0 0H3m18 0v20M3 2v20m0 0h18M5 16h4M5 8h4m6 8h4m-4 0v-8m0 8h4m-4-8h-4m-4 0H5"></path>
@@ -138,7 +150,7 @@
                         </p>
                     </div>
                     <!-- Service Card 3 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg">
+                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg cursor-pointer" onclick="openModal('renovation')">
                         <div class="text-emerald-600 mb-4">
                             <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.484 9.332 5 7.5 5S4.168 5.484 3 6.253m9 0c-1.168.769-2.668 1.253-4.5 1.253S4.168 7.022 3 6.253m9 0c1.168.769 2.668 1.253 4.5 1.253s3.332-.484 4.5-1.253M12 18.747c1.168-.769 2.668-1.253 4.5-1.253s3.332.484 4.5 1.253m-9 0c-1.168-.769-2.668-1.253-4.5-1.253S4.168 18.022 3 18.747"></path>
@@ -150,7 +162,7 @@
                         </p>
                     </div>
                     <!-- Service Card 4 -->
-                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg">
+                    <div class="bg-white p-8 rounded-xl shadow-md transition-shadow hover:shadow-lg cursor-pointer" onclick="openModal('interior')">
                         <div class="text-emerald-600 mb-4">
                             <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -317,7 +329,68 @@
         </svg>
     </button>
 
+    <!-- Modal for Service Details -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modal-title" class="text-3xl font-bold text-slate-900"></h3>
+                <button onclick="closeModal()" class="text-slate-500 hover:text-slate-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <p id="modal-content" class="text-slate-700 leading-relaxed"></p>
+        </div>
+    </div>
+
     <script>
+        // Data for each service to display in the modal
+        const serviceData = {
+            residential: {
+                title: "Residential Design",
+                content: "Our residential design services focus on creating personalized and functional living spaces. We work closely with you to understand your lifestyle, preferences, and needs to design a home that is a true reflection of you. This includes everything from initial concept sketches and floor plans to material selection and final structural drawings. Our goal is to blend aesthetic appeal with practical functionality, ensuring your home is both beautiful and comfortable."
+            },
+            commercial: {
+                title: "Commercial Projects",
+                content: "For commercial projects, our expertise lies in designing spaces that enhance productivity, reflect brand identity, and create a welcoming environment for clients. Whether it's a new office building, a retail store, or a restaurant, we focus on smart layouts, efficient workflows, and innovative design solutions that meet your business goals and comply with all regulations. We handle projects of all scales, from small business fit-outs to large-scale commercial complexes."
+            },
+            renovation: {
+                title: "Renovation & Restoration",
+                content: "Our renovation and restoration services breathe new life into existing structures. We specialize in transforming outdated or damaged spaces into modern, functional, and beautiful environments. Our process respects the original character of the building while introducing contemporary elements and sustainable practices. We can help you update a single room or completely overhaul an entire property, ensuring the project is seamless from start to finish."
+            },
+            interior: {
+                title: "Interior Design",
+                content: "Our interior design services go beyond aesthetics to create spaces that are both beautiful and livable. We select furniture, lighting, color schemes, and decor that complement the architectural style and meet your personal taste. We create cohesive and harmonious interiors that improve your quality of life. From classic to contemporary, we tailor our designs to your unique vision, ensuring every detail contributes to a perfect space."
+            }
+        };
+
+        const serviceModal = document.getElementById('serviceModal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal(serviceKey) {
+            const data = serviceData[serviceKey];
+            if (data) {
+                modalTitle.textContent = data.title;
+                modalContent.textContent = data.content;
+                serviceModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevents background scrolling
+            }
+        }
+
+        function closeModal() {
+            serviceModal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restores background scrolling
+        }
+
+        // Close modal when clicking outside the content
+        serviceModal.addEventListener('click', (event) => {
+            if (event.target === serviceModal) {
+                closeModal();
+            }
+        });
+
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
